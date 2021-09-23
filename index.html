@@ -364,7 +364,7 @@ font-size: 30px; } } */
     <script src="testPanto/js/main_.js"></script>
     
     <script>
-        $.getJSON('http://dev.homehealth.digital/panto/ticketStatus/',function(response){
+        $.getJSON('https://dev.homehealth.digital/panto/ticketStatus/',function(response){
             console.log(response['night1'])
             $("#night1 .ticketsLeft").text(response['night1'])
             $("#night2 .ticketsLeft").text(response['night2'])
@@ -382,8 +382,8 @@ font-size: 30px; } } */
             // -nightNumber=2
             console.log(val)
             console.log(val2)
-            // console.log( 'http://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber.toString()+'&night='+val)
-            window.location.href = 'http://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber+'&night='+val
+            // console.log( 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber.toString()+'&night='+val)
+            window.location.href = 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber+'&night='+val
         })
 
         $('.minusButton').on('click',function(){
