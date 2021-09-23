@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <!--====== Title ======-->
-    <title>Jurgs Big Panto</title>
+    <title>Jurg's Big Panto</title>
     
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -421,6 +421,12 @@ font-size: 30px; } } */
         $(this).closest('.tab-pane').find('.ticketsLeft').text(ticketsLeft)
         $(this).closest('.tab-pane').find('.ticketNumber').text(tickets)
         })
+
+        let params = (new URL(document.location)).searchParams;
+        let name = params.get("success");
+        if (name){
+            alert('Check your email for your ticket and Ticket code !')
+        }
         </script>
     
 </body>
