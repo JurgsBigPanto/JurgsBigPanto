@@ -415,7 +415,7 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
     <!--====== Main js ======-->
     <script src="testPanto/js/main_.js"></script>
     
-<!--     <script src="testPanto/js/bootstrap-cookie-consent-settings.js"></script> -->
+    <script src="testPanto/js/bootstrap-cookie-consent-settings.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intense-images/1.0.7/intense.min.js"></script>
 
@@ -429,7 +429,6 @@ window.onload = function() {
 
     <script>
         $.getJSON('https://dev.homehealth.digital/panto/ticketStatus/',function(response){
-            console.log(response['night1'])
             $("#night1 .ticketsLeft").text(response['night1'])
             $("#night2 .ticketsLeft").text(response['night2'])
             $("#night3 .ticketsLeft").text(response['night3'])
@@ -497,15 +496,16 @@ window.onload = function() {
 
     // dialog content
     contentURL: "./content/",
-
+    autoShowDialog: true,
     // cookie name stored as JSON
     cookieName: "cookie-consent-settings",
 
     // 365 days
     cookieStorageDays: 365
 })
-cookieSettings.showDialog();
-
+// cookieSettings.showDialog();
+// var settings  = cookieSettings.getSettings();
+// console.log(settings)
         </script>
     
 </body>
