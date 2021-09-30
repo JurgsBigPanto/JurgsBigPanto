@@ -203,13 +203,13 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
                                     <div class='col-12'>
                                         <ul class="nav nav-pills nav-fill">
                                             <li class="nav-item">
-                                              <a class="nav-link active" data-toggle="pill" data-nightNumber="1" href="#night1">Tuesday 27th</a>
+                                              <a class="nav-link active" data-toggle="pill" data-nightNumber="1" href="#night1">Wednesday 27th</a>
                                             </li>
                                             <li class="nav-item">
-                                              <a class="nav-link" data-toggle="pill" data-nightNumber="2" href="#night2">Wednesday 28th</a>
+                                              <a class="nav-link" data-toggle="pill" data-nightNumber="2" href="#night2">Thurdsay 28th</a>
                                             </li>
                                             <li class="nav-item">
-                                              <a class="nav-link" data-toggle="pill" data-nightNumber="3" href="#night3">Thurdsay 29th</a>
+                                              <a class="nav-link" data-toggle="pill" data-nightNumber="3" href="#night3">Friday 29th</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -372,10 +372,10 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
     
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-messaging.js"></script> -->
     
 
 
@@ -395,7 +395,6 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
     <script src="testPanto/js/waypoints.min.js"></script>
     <script src="testPanto/js/jquery.counterup.min.js"></script>
     
-
     
     <!--====== Scrolling Nav js ======-->
     <script src="testPanto/js/jquery.easing.min.js"></script>
@@ -410,6 +409,8 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
     <!--====== Main js ======-->
     <script src="testPanto/js/main_.js"></script>
     
+    <script src="testPanto/js/bootstrap-cookie-consent-settings.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intense-images/1.0.7/intense.min.js"></script>
 
 <script>
@@ -480,6 +481,25 @@ window.onload = function() {
                 $('.modal').modal('show')
             // alert('Check your email for your ticket and Ticket code !'+name)
         }
+
+        var cookieSettings = new BootstrapCookieConsentSettings({
+    // the language, in which the modal is shown
+    lang: navigator.language, 
+
+    // supported languages (in ./content/)
+    languages: ["en", "de"], 
+
+    // dialog content
+    contentURL: "./content/",
+
+    // cookie name stored as JSON
+    cookieName: "cookie-consent-settings",
+
+    // 365 days
+    cookieStorageDays: 365
+})
+cookieSettings.showDialog();
+
         </script>
     
 </body>
