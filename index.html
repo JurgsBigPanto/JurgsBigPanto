@@ -225,7 +225,7 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
                                             <div class='col-2'>
                                             </div>
                                         </div>
-                                        <div class='row mt-5'>
+                                        <div class='row mt-5 ticketbuying'>
                                             <div class='col-lg-4 col-md-4 col-sm-3'></div>
                                             <div class='col-lg-4 col-md-4 col-sm-6'>
 
@@ -253,7 +253,7 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
                                             <div class='col-2'>
                                             </div>
                                         </div>
-                                        <div class='row mt-5'>
+                                        <div class='row mt-5 ticketbuying'>
                                             <div class='col-lg-4 col-md-4 col-sm-3'></div>
                                             <div class='col-lg-4 col-md-4 col-sm-6'>
                                                 <div class='row'>
@@ -280,7 +280,7 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
                                             <div class='col-2'>
                                             </div>
                                         </div>
-                                        <div class='row mt-5'>
+                                        <div class='row mt-5 ticketbuying'>
                                             <div class='col-lg-4 col-md-4 col-sm-3'></div>
                                             <div class='col-lg-4 col-md-4 col-sm-6'>
 
@@ -429,18 +429,41 @@ window.onload = function() {
 
     <script>
         $.getJSON('https://dev.homehealth.digital/panto/ticketStatus/',function(response){
-            $("#night1 .ticketsLeft").text(response['night1'])
-            $("#night2 .ticketsLeft").text(response['night2'])
-            $("#night3 .ticketsLeft").text(response['night3'])
+            // $("#night1 .ticketsLeft").text(response['night1'])
+
+
+            // $("#night2 .ticketsLeft").text(response['night2'])
+
+            if (response['night1'] < 1){
+                $("#night1 .ticketsLeft").parent().text('SOLD OUT!')
+                $("#night1 .ticketbuying").hide()
+            }else{
+                $("#night1 .ticketsLeft").text(response['night1'])
+            }
+
+            if (response['night2'] < 1){
+                $("#night2 .ticketsLeft").parent().text('SOLD OUT!')
+                $("#night2 .ticketbuying").hide()
+            }else{
+                $("#night2 .ticketsLeft").text(response['night2'])
+            }
+
+            if (response['night3'] < 1){
+                $("#night3 .ticketsLeft").parent().text('SOLD OUT!')
+                $("#night3 .ticketbuying").hide()
+            }else{
+                $("#night3 .ticketsLeft").text(response['night3'])
+            }
   }).then(console.log('he'));
 
         $('#buyTickets').on('click', function(){
             var val = $('.nav-link.active').data('nightnumber')
             var val2 = $('.nav-link.active').html()
             var ticketNumber = $('.nightshow .active').find('.ticketNumber').text()
-            console.log($('.nightshow .active').html())
+            if (parseInt(ticketNumber) > 0){
+                window.location.href = 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber+'&night='+val
+            }
             // console.log( 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber.toString()+'&night='+val)
-            window.location.href = 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber+'&night='+val
         })
 
         $('.minusButton').on('click',function(){
