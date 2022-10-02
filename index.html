@@ -343,15 +343,6 @@ h1 {font-size:1.5rem;} /*1rem = 16px*/
           </div>
         </div>
       </div>
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase.js"></script> -->
-    
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-messaging.js"></script> -->
     
 
 
@@ -399,10 +390,7 @@ window.onload = function() {
 
     <script>
         $.getJSON('https://dev.homehealth.digital/panto/ticketStatus/',function(response){
-            // $("#night1 .ticketsLeft").text(response['night1'])
 
-
-            // $("#night2 .ticketsLeft").text(response['night2'])
 
             if (response['night1'] < 1){
                 $("#night1 .ticketsLeft").parent().text('SOLD OUT!')
@@ -424,7 +412,7 @@ window.onload = function() {
             }else{
                 $("#night3 .ticketsLeft").text(response['night3'])
             }
-  }).then(console.log('he'));
+  })
 
         $('#buyTickets').on('click', function(){
             var val = $('.nav-link.active').data('nightnumber')
@@ -433,7 +421,6 @@ window.onload = function() {
             if (parseInt(ticketNumber) > 0){
                 window.location.href = 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber+'&night='+val
             }
-            // console.log( 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber.toString()+'&night='+val)
         })
 
         $('.minusButton').on('click',function(){
@@ -458,7 +445,7 @@ window.onload = function() {
 
         $('.plusButton').on('click',function(){
         var tickets = parseInt($(this).closest('.tab-pane').find('.ticketNumber').text())
-        console.log($(this).closest('.tab-pane').find('.ticketsLeft').text())
+        
         tickets = tickets + 1
         ticketsLeft = $(this).closest('.tab-pane').find('.ticketsLeft').text()
         ticketsLeft = parseInt(ticketsLeft) - 1
@@ -477,7 +464,7 @@ window.onload = function() {
         if (name){
             $('#ticketCode').text(name)
                 $('.modal').modal('show')
-            // alert('Check your email for your ticket and Ticket code !'+name)
+     
         }
 
         var cookieSettings = new BootstrapCookieConsentSettings({
