@@ -389,7 +389,7 @@ window.onload = function() {
 </script>
 
     <script>
-        $.getJSON('https://dev.homehealth.digital/panto/ticketStatus/',function(response){
+        $.getJSON('https://test.homehealth.digital/panto/ticketStatus/',function(response){
 
 
             if (response['night1'] < 1){
@@ -419,7 +419,7 @@ window.onload = function() {
             var val2 = $('.nav-link.active').html()
             var ticketNumber = $('.nightshow .active').find('.ticketNumber').text()
             if (parseInt(ticketNumber) > 0){
-                window.location.href = 'https://dev.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber+'&night='+val
+                window.location.href = 'https://test.homehealth.digital/panto/checkout/?ticketNumber='+ticketNumber+'&night='+val
             }
         })
 
